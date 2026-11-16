@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第17回 データ活用の考え方 ワークシート</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#e2e8f0;color:#0f172a;font-family:"Yu Gothic","YuGothic","Meiryo",sans-serif;line-height:1.35}
+    .page{width:210mm;height:297mm;margin:0 auto;padding:8mm 9mm 7mm;background:#fff;overflow:hidden}
+    header{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6px;border-bottom:3px solid #1e3a8a}
+    h1{margin:0;color:#1e3a8a;font-size:19px}.sub{font-size:10.5px;color:#475569;font-weight:700}
+    .name{display:flex;align-items:flex-end;font-size:12px;font-weight:700}.name input{width:250px;height:25px;margin-left:8px;padding:2px 5px;border:0;border-bottom:1px solid #475569;background:#f8fafc;font:inherit;outline:none}.name input:focus{border-bottom:2px solid #06b6d4;background:#ecfeff}
+    .goal{display:grid;grid-template-columns:90px 1fr;gap:8px;margin:7px 0;padding:7px 9px;border-left:7px solid #06b6d4;background:#ecfeff;font-size:9.5px;font-weight:700}
+    .goal b{color:#0e7490;font-size:11px}
+    .section{margin-top:7px;overflow:hidden;border:1.2px solid #b7c4d6;border-radius:6px;break-inside:avoid}
+    .head{display:flex;align-items:center;gap:8px;padding:6px 9px;background:#1e3a8a;color:#fff;font-size:11.5px;font-weight:700}
+    .head.cyan{background:#0e7490}.head.amber{background:#b45309}
+    .num{display:inline-flex;width:19px;height:19px;align-items:center;justify-content:center;border-radius:50%;background:#f59e0b;color:#111827;font-size:9px}
+    .body{padding:7px 9px;font-size:8.8px}.hint{color:#475569;font-size:7.5px;font-weight:700}
+    table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.2px}th,td{border:1px solid #94a3b8;padding:5px;vertical-align:top}th{background:#dbeafe;color:#1e3a8a;text-align:center}
+    .terms th:first-child{width:19%}.terms th:nth-child(2){width:34%}.terms td{height:60px}.write{padding:0;background:#fbfdff}
+    .v-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:5px}.v{padding:4px;border-top:3px solid #06b6d4;background:#f8fafc;text-align:center;font-size:7.1px}.v b{display:block;color:#1e3a8a;font-size:7.8px}
+    .cycle{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.step{position:relative;min-height:50px;padding:5px;border:1px solid #cbd5e1;background:#f8fafc;text-align:center;font-size:7.3px}.step b{display:block;margin-bottom:2px;color:#1e3a8a;font-size:8.2px}.step:not(:last-child)::after{content:"›";position:absolute;right:-7px;top:13px;z-index:2;color:#b45309;font-size:18px;font-weight:700}
+    .question{display:grid;grid-template-columns:68px 1fr;gap:5px;align-items:center;margin-bottom:5px;padding:5px 7px;background:#eef2ff;border-left:5px solid #1e3a8a;font-size:8.5px}.question b{color:#1e3a8a;font-size:9px}.hypothesis{width:62%;height:23px;margin-left:4px;padding:2px 5px;border:1px solid #94a3b8;border-radius:3px;background:#fff;font-size:8px}
+    .workgrid{display:grid;grid-template-columns:0.92fr 1.18fr;gap:6px}.box{padding:5px 6px;border:1px solid #cbd5e1;border-radius:5px;background:#fff}.box-title{margin-bottom:4px;color:#1e3a8a;font-size:8.7px;font-weight:700}.plan-note{font-size:7.2px;color:#475569}.data th,.data td{padding:0;text-align:center;height:36px}.data th{padding:3px}.data th:first-child{width:18%}.data td:first-child{padding:8px 3px}.cell-number{width:100%;height:35px;border:0;background:#fbfdff;text-align:center;color:#1d4ed8;font-size:9px;font-weight:700;outline:none}.cell-number:focus{background:#ecfeff;box-shadow:inset 0 0 0 2px #06b6d4}.analysis{display:grid;grid-template-columns:188px 1fr;gap:6px}.plot-area{position:relative;width:188px;height:205px;padding:4px 4px 19px 25px}.plot{position:relative;width:160px;height:160px;border-left:1.5px solid #334155;border-bottom:1.5px solid #334155;background-image:linear-gradient(#cbd5e1 1px,transparent 1px),linear-gradient(90deg,#cbd5e1 1px,transparent 1px);background-size:32px 32px}.dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:5.5px;font-weight:800;text-align:center;line-height:10px;transform:translate(-50%,50%)}.ylabel{position:absolute;left:0;top:58px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:6.5px;font-weight:700;color:#475569}.xlabel{position:absolute;left:69px;bottom:0;font-size:6.5px;font-weight:700;color:#475569}.yvals{position:absolute;left:15px;top:2px;height:162px;display:flex;flex-direction:column;justify-content:space-between;font-size:6px;color:#475569}.xvals{position:absolute;left:23px;bottom:10px;width:165px;display:flex;justify-content:space-between;font-size:5.8px;color:#475569}.analysis-notes{font-size:7.1px}.choices{margin:3px 0 4px;line-height:1.8}.choices label{display:inline-flex;align-items:center;gap:2px;margin-right:4px;cursor:pointer}.choices input{accent-color:#1d4ed8}.entry{width:100%;padding:4px 5px;border:1px solid #94a3b8;border-radius:3px;background:#fbfdff;color:#0f172a;font-family:inherit;font-size:7.5px;line-height:1.45;resize:none;outline:none}.entry:focus{border-color:#06b6d4;background:#ecfeff;box-shadow:0 0 0 1px #06b6d4}.cell-input{height:59px;border:0;border-radius:0}.insight{height:58px;margin-top:3px}.result{display:grid;grid-template-columns:1.2fr 1fr;gap:6px;margin-top:6px}.result .entry{height:105px;margin-top:4px}.stem{font-size:7.2px;color:#475569}.check{margin-top:5px;padding:4px 7px;background:#fff7ed;border-left:4px solid #f59e0b;color:#78350f;font-size:7.2px;font-weight:700}
+    .digital-tools{position:fixed;z-index:20;right:14px;top:14px;display:flex;align-items:center;gap:6px;padding:7px 8px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;box-shadow:0 6px 20px #0f172a26;font-size:11px}.digital-tools button{padding:6px 9px;border:1px solid #1e3a8a;border-radius:4px;background:#1e3a8a;color:#fff;font-weight:700;cursor:pointer}.digital-tools button.secondary{background:#fff;color:#1e3a8a}.save-state{min-width:58px;color:#047857;font-weight:700}
+    .footer{display:flex;justify-content:space-between;margin-top:5px;color:#64748b;font-size:7px}
+    @media screen and (max-width:900px){.page{width:100%;height:auto;min-height:297mm}.digital-tools{position:sticky;top:0;justify-content:flex-end;border-radius:0}}
+    @media print{body{background:#fff}.page{margin:0}.digital-tools{display:none}.entry,.cell-number,.hypothesis,.name input{background:#fff}@page{size:A4;margin:0}}
+  </style>
+</head>
+<body>
+  <div class="digital-tools" aria-label="入力内容の操作"><span id="saveState" class="save-state">自動保存</span><button type="button" id="downloadButton">回答を保存</button><button type="button" class="secondary" id="clearButton">入力を消去</button></div>
+  <main class="page">
+    <header>
+      <div><h1>高校情報Ⅰ ワークシート</h1><div class="sub">第17回　データ活用の考え方</div></div>
+      <label class="name">氏名:<input type="text" data-key="name" autocomplete="name" aria-label="氏名"></label>
+    </header>
 
+    <div class="goal"><b>今日の目的地</b><span>班でPPDACサイクルを一周し、集めたデータから言えることと、まだ言えないことを区別する。</span></div>
+
+    <section class="section">
+      <div class="head"><span class="num">1</span>オープンデータとビッグデータ　身近な例を考えよう</div>
+      <div class="body">
+        <table class="terms">
+          <tr><th>用語</th><th>特徴</th><th>学校・地域・生活で考えられる例</th></tr>
+          <tr><td><b>オープンデータ</b></td><td>国や自治体などが、利用条件を示して、誰でも利用・再利用しやすい形で公開するデータ。</td><td class="write"><textarea class="entry cell-input" data-key="openDataExample" aria-label="オープンデータの例"></textarea></td></tr>
+          <tr><td><b>ビッグデータ</b></td><td>量が多く、種類が多様で、速い速度で蓄積されるなど、従来の方法では扱いにくいデータ。</td><td class="write"><textarea class="entry cell-input" data-key="bigDataExample" aria-label="ビッグデータの例"></textarea></td></tr>
+        </table>
+        <div class="v-strip">
+          <div class="v"><b>Volume</b>量</div><div class="v"><b>Velocity</b>速度</div><div class="v"><b>Variety</b>多様性</div><div class="v"><b>Veracity</b>信頼性</div><div class="v"><b>Value</b>価値</div>
+        </div>
+        <div class="hint" style="margin-top:4px">公開されているデータも、利用条件・出典・更新日を確認する。大量のデータも、問いがなければ何を調べるか決まらない。</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="head cyan"><span class="num">2</span>PPDACサイクル　問いから結論までをつなげよう</div>
+      <div class="body">
+        <div class="cycle">
+          <div class="step"><b>Problem</b>何を明らかにする?</div>
+          <div class="step"><b>Plan</b>どう調べる?</div>
+          <div class="step"><b>Data</b>何を集めた?</div>
+          <div class="step"><b>Analysis</b>どう比べる?</div>
+          <div class="step"><b>Conclusion</b>何が言える?</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="head amber"><span class="num">3</span>班でPPDACを一周　通学時間と朝の眠さには関係がある?</div>
+      <div class="body">
+        <div class="question"><b>Problem</b><span>通学時間が長い人ほど、朝の眠さは強いのか。　仮説:<input class="hypothesis" type="text" data-key="hypothesis" aria-label="仮説"></span></div>
+        <div class="workgrid">
+          <div class="box">
+            <div class="box-title">Plan / Data　班員の値を匿名で集める</div>
+            <div class="plan-note">通学時間: 片道のおよその時間を5分単位　　眠さ: 今朝の学校到着時を1〜5（1=眠くない、5=とても眠い）<br>氏名・住所は書かない。答えたくない値は空欄でよい。</div>
+            <table class="data">
+              <tr><th>記号</th><th>通学時間<br>（分）</th><th>眠さ<br>（1〜5）</th></tr>
+              <tr><td>A</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeA" data-person="A" data-kind="time" aria-label="Aの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepA" data-person="A" data-kind="sleep" aria-label="Aの眠さ"></td></tr>
+              <tr><td>B</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeB" data-person="B" data-kind="time" aria-label="Bの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepB" data-person="B" data-kind="sleep" aria-label="Bの眠さ"></td></tr>
+              <tr><td>C</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeC" data-person="C" data-kind="time" aria-label="Cの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepC" data-person="C" data-kind="sleep" aria-label="Cの眠さ"></td></tr>
+              <tr><td>D</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeD" data-person="D" data-kind="time" aria-label="Dの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepD" data-person="D" data-kind="sleep" aria-label="Dの眠さ"></td></tr>
+              <tr><td>E</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeE" data-person="E" data-kind="time" aria-label="Eの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepE" data-person="E" data-kind="sleep" aria-label="Eの眠さ"></td></tr>
+              <tr><td>F</td><td><input class="cell-number" type="number" min="0" max="75" step="5" data-key="timeF" data-person="F" data-kind="time" aria-label="Fの通学時間"></td><td><input class="cell-number" type="number" min="1" max="5" step="1" data-key="sleepF" data-person="F" data-kind="sleep" aria-label="Fの眠さ"></td></tr>
+            </table>
+          </div>
+          <div class="box">
+            <div class="box-title">Analysis　1人を1点として散布図に打つ</div>
+            <div class="analysis">
+              <div class="plot-area"><span class="ylabel">朝の眠さ</span><div class="yvals"><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div><div class="plot" id="plot"></div><div class="xvals"><span>0</span><span>15</span><span>30</span><span>45</span><span>60</span><span>75</span></div><span class="xlabel">通学時間（分）</span></div>
+              <div class="analysis-notes">
+                <b>全体の見え方</b><div class="choices"><label><input type="radio" name="trend" value="右上がり" data-key="trend">右上がり</label><label><input type="radio" name="trend" value="右下がり" data-key="trend">右下がり</label><br><label><input type="radio" name="trend" value="はっきりした傾向なし" data-key="trend">はっきりした傾向なし</label></div>
+                <b>気づいたこと</b><textarea class="entry insight" data-key="insight" aria-label="分析で気づいたこと"></textarea>
+                <span class="stem">点が少ないと、偶然の影響を受けやすい。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="result">
+          <div class="box"><div class="box-title">Conclusion　班のデータから言えること</div><span class="stem">「この班のデータでは、…」に続けて書く。</span><textarea class="entry" data-key="conclusion" aria-label="班のデータから言えること"></textarea></div>
+          <div class="box"><div class="box-title">調査の限界・次に確かめたいこと</div><span class="stem">人数、調査日、睡眠時間、交通手段など</span><textarea class="entry" data-key="limitations" aria-label="調査の限界と次に確かめたいこと"></textarea></div>
+        </div>
+      </div>
+      <div class="check">注意: 関係が見えても「通学時間が眠さの原因」とは限らない。班の少人数・今朝1回のデータを、学校全体へそのまま広げない。</div>
+    </section>
+
+    <div class="footer"><span>次回: データの形式と尺度水準。同じ数字でも、できる計算が異なる理由を考える。</span><span>1 / 1</span></div>
+  </main>
+  <script>
+    const STORAGE_KEY = "jouhou1_lesson17_ppdac_v1";
+    const fields = [...document.querySelectorAll("[data-key]")];
+    const saveState = document.getElementById("saveState");
+
+    function readAnswers() {
+      const answers = {};
+      fields.forEach((field) => {
+        if (field.type === "radio") {
+          if (field.checked) answers[field.dataset.key] = field.value;
+        } else {
+          answers[field.dataset.key] = field.value;
+        }
+      });
+      return answers;
+    }
+
+    function saveAnswers() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(readAnswers()));
+      saveState.textContent = "保存済み";
+      clearTimeout(window.saveTimer);
+      window.saveTimer = setTimeout(() => saveState.textContent = "自動保存", 1200);
+    }
+
+    function loadAnswers() {
+      const answers = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      fields.forEach((field) => {
+        if (!(field.dataset.key in answers)) return;
+        if (field.type === "radio") field.checked = field.value === answers[field.dataset.key];
+        else field.value = answers[field.dataset.key];
+      });
+    }
+
+    function updatePlot() {
+      const plot = document.getElementById("plot");
+      plot.querySelectorAll(".dot").forEach((dot) => dot.remove());
+      ["A", "B", "C", "D", "E", "F"].forEach((person) => {
+        const timeValue = document.querySelector(`[data-key="time${person}"]`).value;
+        const sleepValue = document.querySelector(`[data-key="sleep${person}"]`).value;
+        if (timeValue === "" || sleepValue === "") return;
+        const time = Number(timeValue);
+        const sleep = Number(sleepValue);
+        if (!Number.isFinite(time) || !Number.isFinite(sleep) || time < 0 || time > 75 || sleep < 1 || sleep > 5) return;
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.textContent = person;
+        dot.style.left = `${(time / 75) * 100}%`;
+        dot.style.bottom = `${((sleep - 1) / 4) * 100}%`;
+        plot.appendChild(dot);
+      });
+    }
+
+    function downloadAnswers() {
+      const a = readAnswers();
+      const rows = ["A", "B", "C", "D", "E", "F"].map((p) => `${p}: 通学時間 ${a[`time${p}`] || "未入力"}分 / 眠さ ${a[`sleep${p}`] || "未入力"}`);
+      const text = [
+        "第17回 データ活用の考え方 回答",
+        `氏名: ${a.name || ""}`,
+        `オープンデータの例: ${a.openDataExample || ""}`,
+        `ビッグデータの例: ${a.bigDataExample || ""}`,
+        `仮説: ${a.hypothesis || ""}`,
+        "", "班のデータ", ...rows, "",
+        `全体の見え方: ${a.trend || "未選択"}`,
+        `気づいたこと: ${a.insight || ""}`,
+        `結論: ${a.conclusion || ""}`,
+        `調査の限界・次に確かめたいこと: ${a.limitations || ""}`
+      ].join("\n");
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `第17回_PPDAC回答_${a.name || "氏名未入力"}.txt`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+
+    fields.forEach((field) => field.addEventListener("input", () => { saveAnswers(); updatePlot(); }));
+    document.getElementById("downloadButton").addEventListener("click", downloadAnswers);
+    document.getElementById("clearButton").addEventListener("click", () => {
+      if (!confirm("この端末に保存した入力内容をすべて消去しますか？")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      fields.forEach((field) => field.type === "radio" ? field.checked = false : field.value = "");
+      updatePlot();
+      saveState.textContent = "消去しました";
+    });
+    loadAnswers();
+    updatePlot();
+  </script>
+</body>
+</html>
