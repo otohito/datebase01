@@ -24,14 +24,14 @@
     .cycle{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.step{position:relative;min-height:50px;padding:5px;border:1px solid #cbd5e1;background:#f8fafc;text-align:center;font-size:7.3px}.step b{display:block;margin-bottom:2px;color:#1e3a8a;font-size:8.2px}.step:not(:last-child)::after{content:"›";position:absolute;right:-7px;top:13px;z-index:2;color:#b45309;font-size:18px;font-weight:700}
     .question{display:grid;grid-template-columns:68px 1fr;gap:5px;align-items:center;margin-bottom:5px;padding:5px 7px;background:#eef2ff;border-left:5px solid #1e3a8a;font-size:8.5px}.question b{color:#1e3a8a;font-size:9px}.hypothesis{width:62%;height:23px;margin-left:4px;padding:2px 5px;border:1px solid #94a3b8;border-radius:3px;background:#fff;font-size:8px}
     .workgrid{display:grid;grid-template-columns:0.92fr 1.18fr;gap:6px}.box{padding:5px 6px;border:1px solid #cbd5e1;border-radius:5px;background:#fff}.box-title{margin-bottom:4px;color:#1e3a8a;font-size:8.7px;font-weight:700}.plan-note{font-size:7.2px;color:#475569}.data th,.data td{padding:0;text-align:center;height:36px}.data th{padding:3px}.data th:first-child{width:18%}.data td:first-child{padding:8px 3px}.cell-number{width:100%;height:35px;border:0;background:#fbfdff;text-align:center;color:#1d4ed8;font-size:9px;font-weight:700;outline:none}.cell-number:focus{background:#ecfeff;box-shadow:inset 0 0 0 2px #06b6d4}.analysis{display:grid;grid-template-columns:188px 1fr;gap:6px}.plot-area{position:relative;width:188px;height:205px;padding:4px 4px 19px 25px}.plot{position:relative;width:160px;height:160px;border-left:1.5px solid #334155;border-bottom:1.5px solid #334155;background-image:linear-gradient(#cbd5e1 1px,transparent 1px),linear-gradient(90deg,#cbd5e1 1px,transparent 1px);background-size:32px 32px}.dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:5.5px;font-weight:800;text-align:center;line-height:10px;transform:translate(-50%,50%)}.ylabel{position:absolute;left:0;top:58px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:6.5px;font-weight:700;color:#475569}.xlabel{position:absolute;left:69px;bottom:0;font-size:6.5px;font-weight:700;color:#475569}.yvals{position:absolute;left:15px;top:2px;height:162px;display:flex;flex-direction:column;justify-content:space-between;font-size:6px;color:#475569}.xvals{position:absolute;left:23px;bottom:10px;width:165px;display:flex;justify-content:space-between;font-size:5.8px;color:#475569}.analysis-notes{font-size:7.1px}.choices{margin:3px 0 4px;line-height:1.8}.choices label{display:inline-flex;align-items:center;gap:2px;margin-right:4px;cursor:pointer}.choices input{accent-color:#1d4ed8}.entry{width:100%;padding:4px 5px;border:1px solid #94a3b8;border-radius:3px;background:#fbfdff;color:#0f172a;font-family:inherit;font-size:7.5px;line-height:1.45;resize:none;outline:none}.entry:focus{border-color:#06b6d4;background:#ecfeff;box-shadow:0 0 0 1px #06b6d4}.cell-input{height:59px;border:0;border-radius:0}.insight{height:58px;margin-top:3px}.result{display:grid;grid-template-columns:1.2fr 1fr;gap:6px;margin-top:6px}.result .entry{height:105px;margin-top:4px}.stem{font-size:7.2px;color:#475569}.check{margin-top:5px;padding:4px 7px;background:#fff7ed;border-left:4px solid #f59e0b;color:#78350f;font-size:7.2px;font-weight:700}
-    .digital-tools{position:fixed;z-index:20;right:14px;top:14px;display:flex;align-items:center;gap:6px;padding:7px 8px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;box-shadow:0 6px 20px #0f172a26;font-size:11px}.digital-tools button{padding:6px 9px;border:1px solid #1e3a8a;border-radius:4px;background:#1e3a8a;color:#fff;font-weight:700;cursor:pointer}.digital-tools button.secondary{background:#fff;color:#1e3a8a}.save-state{min-width:58px;color:#047857;font-weight:700}
+    .digital-tools{position:fixed;z-index:20;right:14px;top:14px;display:flex;align-items:center;gap:6px;padding:7px 8px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;box-shadow:0 6px 20px #0f172a26;font-size:11px}.digital-tools button{padding:6px 9px;border:1px solid #1e3a8a;border-radius:4px;background:#1e3a8a;color:#fff;font-weight:700;cursor:pointer}.save-state{min-width:58px;color:#047857;font-weight:700}
     .footer{display:flex;justify-content:space-between;margin-top:5px;color:#64748b;font-size:7px}
     @media screen and (max-width:900px){.page{width:100%;height:auto;min-height:297mm}.digital-tools{position:sticky;top:0;justify-content:flex-end;border-radius:0}}
     @media print{body{background:#fff}.page{margin:0}.digital-tools{display:none}.entry,.cell-number,.hypothesis,.name input{background:#fff}@page{size:A4;margin:0}}
   </style>
 </head>
 <body>
-  <div class="digital-tools" aria-label="入力内容の操作"><span id="saveState" class="save-state">自動保存</span><button type="button" id="downloadButton">回答を保存</button><button type="button" class="secondary" id="clearButton">入力を消去</button></div>
+  <div class="digital-tools" aria-label="入力内容の操作"><span id="saveState" class="save-state">自動保存</span><button type="button" id="downloadButton">回答を保存</button></div>
   <main class="page">
     <header>
       <div><h1>高校情報Ⅰ ワークシート</h1><div class="sub">第17回　データ活用の考え方</div></div>
@@ -185,13 +185,6 @@
 
     fields.forEach((field) => field.addEventListener("input", () => { saveAnswers(); updatePlot(); }));
     document.getElementById("downloadButton").addEventListener("click", downloadAnswers);
-    document.getElementById("clearButton").addEventListener("click", () => {
-      if (!confirm("この端末に保存した入力内容をすべて消去しますか？")) return;
-      localStorage.removeItem(STORAGE_KEY);
-      fields.forEach((field) => field.type === "radio" ? field.checked = false : field.value = "");
-      updatePlot();
-      saveState.textContent = "消去しました";
-    });
     loadAnswers();
     updatePlot();
   </script>
